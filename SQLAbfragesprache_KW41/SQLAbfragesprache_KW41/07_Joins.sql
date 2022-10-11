@@ -36,7 +36,7 @@ JOIN Products p ON p.ProductID = od.ProductID
 --OUTER JOIN
 --LEFT/RIGHT JOIN 
 SELECT * 
-FROM Customers c LEFT JOIN orders o  ON c.CustomerID = o.CustomerID
+FROM Customers c RIGHT JOIN orders o  ON c.CustomerID = o.CustomerID
 WHERE OrderID IS NULL
 
 --FULL OUTER JOIN
@@ -74,3 +74,20 @@ SELECT CompanyName, c.CustomerID, Freight, OrderID, (e.FirstName + ' ' + e.LastN
 JOIN Orders o ON c.CustomerID = o.CustomerID
 JOIN Employees e ON o.EmployeeID = e.EmployeeID
 WHERE OrderID IN (10251, 10280, 10990, 11000)
+
+SELECT * FROM Products
+WHERE Productname LIKE '%Bier%' OR Productname
+
+SELECT CompanyName, ProductName, Quantity FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID
+JOIN [Order Details] od ON o.OrderID = od.OrderID
+JOIN Products p ON p.ProductID = od.ProductID
+WHERE p.ProductName LIKE '%Ale' OR p.ProductName LIKE '%Bier%' OR p.ProductName LIKE '%Lager%'
+ORDER BY Quantity DESC
+
+SELECT ProductName, Orders.CustomerID, Quantity, Customers.CompanyName FROM Orders
+INNER JOIN [Order Details] details ON Orders.OrderID = details.OrderID
+INNER JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+INNER JOIN Products ON Products.ProductID = details.ProductID
+WHERE Products.ProductName LIKE '%Ale' OR Products.ProductName LIKE '%Bier%' OR Products.ProductName LIKE '%Lager%'
+ORDER BY Quantity DESC, CompanyName
