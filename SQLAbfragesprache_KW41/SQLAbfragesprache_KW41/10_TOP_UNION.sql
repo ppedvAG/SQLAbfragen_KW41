@@ -16,6 +16,22 @@ SELECT TOP 10 PERCENT  * FROM Orders
 ORDER BY Freight 
 
 
+-- lower bound for Top 10%
+USE Northwind
+SELECT TOP 1 Umsatz 
+FROM (
+SELECT TOP 10 PERCENT SUM(det.UnitPrice*det.Quantity)  AS Umsatz
+FROM [Order Details] det
+GROUP BY ProductID
+ORDER BY Umsatz DESC) as Umsätze
+ORDER BY Umsatz ASC
+
+
+A TOp 10%
+B 20 %
+C "Bot" 70%
+
+
 
 --UNION -- "eingebautes" DISTINCT
 --UNION ALL ohne DISTINCT

@@ -3,7 +3,7 @@
 'Otto ' WHERE Name = 'Otto' alternativ WHERE Name LIKE 'Otto%'
 
 rtrim ltrim
---Entfernen "unnötige" Leerzeichen links bzw. rechts des Strings
+--Entfernen von "unnötigen" Leerzeichen links bzw. rechts des Strings
 SELECT rtrim('Otto     ')
 SELECT rtrim(Companyname) FROM Customers
 SELECT 'Otto'
@@ -60,7 +60,7 @@ SELECT datepart(quarter, '20210401')
 
 SELECT datename(weekday, getdate())
 
-year(), month(), day()
+year(), month(), day(), quarter()
 
 SELECT * FROM Orders
 WHERE year(orderdate) = '1996'
@@ -73,3 +73,6 @@ SELECT DATEDIFF(day, RequiredDate, ISNULL(ShippedDate, getdate())) as Delay,
 RequiredDate, ShippedDate FROM Orders 
 WHERE DATEDIFF(day, RequiredDate, ShippedDate) > 0 OR ShippedDate IS NULL
 ORDER BY Delay DESC
+
+
+

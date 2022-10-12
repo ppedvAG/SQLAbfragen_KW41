@@ -1,4 +1,4 @@
-/* Datentypen
+/* Datentypen (die "gängigsten")
 
 --Strings
 
@@ -16,6 +16,7 @@ smallint
 bigint
 bit/binary = 1 oder 0
 money
+float
 decimal(10,2) = insgesamt 10 Ziffern/Stellen, 2 davon können Nachkommastellen sein
 
 --Datum

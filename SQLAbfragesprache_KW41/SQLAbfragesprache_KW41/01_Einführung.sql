@@ -1,5 +1,3 @@
--- SELECT
-
 USE Northwind --USE Datenbankname gibt Datenbank an in der die Abfrage ausgeführt werden soll
 SELECT * FROM Customers
 

@@ -1,4 +1,4 @@
---LIKE Keyword = "ungenaue" Suche
+--LIKE Keyword = "ungenaue" Suche, für unbekannte Werte
 
 SELECT * FROM Customers
 WHERE CompanyName LIKE 'Schema'
@@ -20,7 +20,7 @@ WHERE CompanyName LIKE '_a%'
 SELECT * FROM Orders
 WHERE OrderID LIKE '_______6%'
 
---'[]' = alles in den eckigen Klammern ist zulässig
+--'[]' = alles in den eckigen Klammern ist zulässig (mehrere OR Bedingungen)
 
 SELECT * FROM Customers
 WHERE CompanyName LIKE '[abc]%'
@@ -36,7 +36,7 @@ WHERE CompanyName LIKE '[a-g]%'
 SELECT * FROM Customers
 WHERE PostalCode LIKE '[1-5]%'
 
---'[^a-g]' = Nicht innerhalb der angegebenen Range
+--'[^a-g]' = Nicht innerhalb der angegebenen Range (Umkehrwert)
 
 SELECT * FROM Customers
 WHERE CompanyName LIKE '[^abc]%'
@@ -44,13 +44,13 @@ WHERE CompanyName LIKE '[^abc]%'
 UPDATE Customers 
 SET CompanyName = 'Alfreds % Futterkiste' WHERE CustomerID = 'ALFKI'
 
---%-Zeichen mit LIKE suchen:
+-- %-Zeichen mit LIKE suchen:
 SELECT * FROM Customers
 WHERE CompanyName LIKE '%[%]%'
 
---'-Zeichen mit LIKE suchen:
+-- '-Zeichen mit LIKE suchen:
 SELECT * FROM Customers
-WHERE CompanyName LIKE '___['']%'
+WHERE CompanyName LIKE '___['']%' AND City = 'Berlin'
 
 
 LIKE 'M[eya][yi][ear]%'

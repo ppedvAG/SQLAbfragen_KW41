@@ -1,5 +1,5 @@
 SELECT CompanyName, City, Country FROM Customers
--- bestimmte Spalten aufrufen mit "Spaltenname" und mit ',' trennen
+-- bestimmte Spalten aufrufen mit SELECT "Spaltenname" und mit ',' trennen
 
 SELECT City, CustomerID, Country, Address FROM Customers
 -- Reihenfolge der Spalten beliebig wählbar
@@ -21,14 +21,16 @@ SELECT CompanyName as Firmenname FROM Customers
 
 SELECT CompanyName as Firmenname, City as Stadt, Country as Land FROM Customers 
 
--- SELECT DISTINCT zeigt jedes Ergebnis nur einmal an
+-- SELECT DISTINCT zeigt jedes Ergebnis nur einmal an (löscht Duplikate)
 SELECT DISTINCT Country FROM Customers
 
 SELECT DISTINCT Country, CompanyName FROM Customers
 
---Sortieren von Ergebnissen mit ORDER BY - steht IMMER am Ende der ABfrage
+--Sortieren von Ergebnissen mit ORDER BY - steht IMMER am Ende der Abfrage
+--Standardmäßig immer aufsteigend (ascending/ASC)
 SELECT DISTINCT Country FROM Customers
-ORDER BY Country DESC --desc = descending = absteigend
+ORDER BY Country DESC 
+--DESC = descending = absteigend
 
 SELECT * FROM Customers
 ORDER BY City, CompanyName DESC, Country
